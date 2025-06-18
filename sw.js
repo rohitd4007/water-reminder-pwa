@@ -1,11 +1,11 @@
 const CACHE_NAME = 'water-reminder-v1';
 const FILES_TO_CACHE = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/script.js',
-    '/manifest.json',
-    '/reminder-sound.mp3'
+    './',
+    './index.html',
+    './style.css',
+    './script.js',
+    './manifest.json',
+    './reminder-sound.mp3'
 ];
 
 // Install event: cache files
@@ -19,7 +19,15 @@ self.addEventListener("install", event => {
 // Fetch event: serve from cache
 self.addEventListener("fetch", event => {
     event.respondWith(
-        caches.match(event.request).then(response => response || fetch(event.request))
+        caches.match(event.request).then(response => {
+            // Return cached version or fetch from network
+            return response || fetch(event.request);
+        }).catch(() => {
+            // If both cache and network fail, return a fallback
+            if (event.request.destination === 'document') {
+                return caches.match('./index.html');
+            }
+        })
     );
 });
 
