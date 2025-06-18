@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💧 Water Reminder PWA</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">💧</div>
+                <h1>Water Reminder</h1>
+            </div>
+            <p class="subtitle">Stay hydrated, stay healthy</p>
+        </header>
+
+        <main class="main-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Set Your Reminder</h2>
+                    <p>Choose how often you want to be reminded to drink water</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="interval" class="input-label">
+                        <span class="label-icon">⏰</span>
+                        Remind me every
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="number" id="interval" min="1" max="480" value="30" class="interval-input" />
+                        <span class="input-suffix">minutes</span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="start" class="btn btn-primary">
+                        <span class="btn-icon">🚀</span>
+                        Start Reminders
+                    </button>
+                    <button id="stop" class="btn btn-secondary">
+                        <span class="btn-icon">⏹️</span>
+                        Stop
+                    </button>
+                </div>
+
+                <div class="status-container">
+                    <div id="status" class="status-text"></div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-icon">💡</span>
+                    <h3>Tips for Staying Hydrated</h3>
+                </div>
+                <ul class="tips-list">
+                    <li>Drink a glass of water when you wake up</li>
+                    <li>Keep a water bottle nearby</li>
+                    <li>Set reminders throughout the day</li>
+                    <li>Listen to your body's thirst signals</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>💧 Stay hydrated, stay healthy 💧</p>
+        </footer>
+    </div>
+
+    <!-- Notification Sound -->
+    <audio id="reminder-sound" src="reminder-sound.mp3" preload="auto"></audio>
+</body>
+
+</html>
